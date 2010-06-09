@@ -1,4 +1,7 @@
 *, html, body { font: 12px Arial; }
+em { font-style: italic; display: block; font-size: 9px;}
+label { font-weight: bold; display: block;}
+form div { padding: 5px; }
 td { vertical-align: top }
 div.issue { display: inline-block; border: 1px solid #666; background: #fef6a1; padding: 5px; margin: 5px 5px 5px 0; overflow: hidden; width: 110px; box-shadow: 0px 0px 3px #000;
 -webkit-box-shadow: 0px 0px 3px #000;
@@ -6,24 +9,24 @@ div.issue { display: inline-block; border: 1px solid #666; background: #fef6a1; 
 div.issue span { display:inline-block; padding: 2px;}
 div.issue span.key a { color: #000; text-decoration: none; font-weight: bold }
 div.issue span.key a:hover { color: #000; text-decoration: underline }
-div.issue span.key a:visited { color: #ccc; text-decoration: none; font-weight: bold }
+div.issue span.key a:visited { color: #666; text-decoration: underline; font-weight: bold }
 div.issue span.assignee,
-div.issue span.type { font-size: 10px; font-style: italic; color: white; padding: 2px 10px; text-align: right; float: right; clear:both; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin-bottom: 2px; opacity: 0.7;}
-div.issue span.summary { font-size: 10px; height: 140px;}
+div.issue span.type { background: #999; font-size: 9px; font-style: italic; color: white; padding: 2px 10px; text-align: right; float: right; clear:both; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin-bottom: 2px; opacity: 0.8;}
+div.issue span.summary { font-size: 10px; height: 100px;}
 table { margin:0; padding: 0; border-collapse:collapse; }
 table td { width: 260px; margin: 0; padding: 0 0 0 5px;}
 th { font-weight: bold; font-size: 12px; border: 1px solid #eee; padding: 5px 0;}
 
+div.issue span.type.type_1 { background: #e51a40; } /*bug*/
+div.issue span.type.type_3 { background: #ff9900; } /*improvement*/
+div.issue span.type.type_30 { background: #33cc00; } /*demanda*/
+div.issue span.type.type_39 { background: blue; } /*tarefa*/
 
-.type_1 { background: #e51a40; } /*bug*/
-.type_3 { background: #ff9900; } /*improvement*/
-.type_30 { background: #33cc00; } /*demanda*/
-
-.person_0 { background: blue; }
-.person_1 { background: green;}
-.person_2 { background: pink; }
-.person_3 { background: purple; }
-.person_4 { background: red; }
-.person_5 { background: brown; }
-.person_6 { background: gray; }
-.person_7 { background: black;}
+div.issue span.assignee.person_0 { background: blue; }
+div.issue span.assignee.person_1 { background: green;}
+div.issue span.assignee.person_2 { background: purple; }
+div.issue span.assignee.person_3 { background: gray; }
+div.issue span.assignee.person_4 { background: pink; }
+div.issue span.assignee.person_5 { background: red; }
+div.issue span.assignee.person_6 { background: brown; }
+div.issue span.assignee.person_7 { background: black;}

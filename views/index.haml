@@ -1,23 +1,21 @@
 %form{:action => "/board", :method => "post", :id => "generateBoardForm"}
 	%div
 		%label{:for => "jira_url"} Jira url:
-		%br
+		%em Ex.: http://jira.mydomain.com/
 		%input{:type => "text", :name => "jira[url]", :id => "jira_url" }/
 	%div
 		%label{:for => "project_key"} Project Key:
-		%br
+		%em Ex.: MYP
 		%input{:type => "text", :name => "jira[project_key]", :id => "project_key" }/
 	%div
 		%label{:for => "filter_id"} Filter Id:
-		%br
+		%em Ex.: 1234
 		%input{:type => "text", :name => "jira[filter_id]", :id => "filter_id" }/
 	%div
 		%label{:for => "user"} User:
-		%br
 		%input{:type => "text", :name => "jira[user]", :id => "user" }/
 	%div
 		%label{:for => "password"} Password:
-		%br
 		%input{:type => "password", :name => "jira[password]", :id => "password" }/
 	%div
 		%input{:type => "submit", :value => "Generate Board"}
