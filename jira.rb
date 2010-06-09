@@ -15,14 +15,19 @@ class MyJiraService
     @jira.login(params[:user], params[:password])
     
     @project = @jira.getProjectByKey(params[:project_key])
-    @issue_types = @jira.getIssueTypesForProject(@project.id)
+    @issue_types = @jira.getIssueTypes()
+    @subtask_issue_types = @jira.getSubTaskIssueTypes()
     @statuses = @jira.getStatuses()
   end
   
   def find_issue_type_by_id(id)
     @issue_types.find {|i| i.id == id}
   end
-
+  
+  def find_subtask_issue_type_by_id(id)
+    @subtask_issue_types.find {|i| i.id == id}
+  end
+  
   def find_status_by_id(id)
     @statuses.find {|i| i.id == id}
   end
@@ -70,14 +75,19 @@ class Board
     issues.each do |i|
       content << %[
         <div class="issue type_#{i.type}">
-          <span class="key"><a href="#{@jira.address}/#{i.key}">#{i.key}</a></span>
+          <span class="key"><a href="#{@jira.address}browse/#{i.key}">#{i.key}</a></span>
           <span class="summary">#{i.summary}</span><br />
-          <span class="type type_#{i.type}">#{@jira.find_issue_type_by_id(i.type).name}</span><br />
+          <span class="type type_#{i.type}">#{issue_type_description(i)}</span><br />
           <span class="assignee person_#{get_person_class(i.assignee)}">#{i.assignee}</span>
         </div>
       ]
     end
     content
+  end
+  
+  def issue_type_description(issue)
+    type = @jira.find_issue_type_by_id(issue.type) || @jira.find_subtask_issue_type_by_id(issue.type)
+    if type then type.name else issue.type end
   end
   
   private
