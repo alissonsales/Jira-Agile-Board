@@ -47,14 +47,14 @@ class Board
   # closed
   DONE_STATUSES = %w[6]
 
-  attr_reader :todo, :in_progress, :verifying, :done
+  attr_reader :todo, :in_progress, :verifying, :done, :people
   
   def initialize(jira)
     @todo = []
     @in_progress = []
     @verifying = []
     @done = []
-    @persons =[]
+    @people =[]
     @jira = jira
     
     issues = jira.issues
@@ -62,11 +62,11 @@ class Board
   end
 
   def get_person_class(person)
-    if @persons.any? {|p| p == person}
-      @persons.index(person)
+    if @people.any? {|p| p == person}
+      @people.index(person)
     else
-      @persons << person
-      @persons.size - 1
+      @people << person
+      @people.size - 1
     end
   end
   
@@ -74,7 +74,7 @@ class Board
     content = ""
     issues.each do |i|
       content << %[
-        <div class="issue type_#{i.type}">
+        <div class="issue type_#{i.type} person_#{get_person_class(i.assignee)}">
           <span class="key"><a href="#{@jira.address}browse/#{i.key}">#{i.key}</a></span>
           <span class="summary">#{i.summary}</span><br />
           <span class="type type_#{i.type}">#{issue_type_description(i)}</span><br />
@@ -102,6 +102,9 @@ class Board
         @verifying << issue
       elsif DONE_STATUSES.any? {|i| i == issue.status}
         @done << issue
+      end
+      unless @people.any? {|p| p == issue.assignee}
+        @people << issue.assignee
       end
     end
   end

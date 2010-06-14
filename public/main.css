@@ -1,6 +1,6 @@
 *, html, body { font: 12px Arial; }
 em { font-style: italic; display: block; font-size: 9px;}
-label { font-weight: bold; display: block;}
+form label { font-weight: bold; display: block;}
 form div { padding: 5px; }
 td { vertical-align: top }
 div.issue { display: inline-block; border: 1px solid #666; background: #fef6a1; padding: 5px; margin: 5px 5px 5px 0; overflow: hidden; width: 110px; box-shadow: 0px 0px 3px #000;
@@ -11,7 +11,8 @@ div.issue span.key a { color: #000; text-decoration: none; font-weight: bold }
 div.issue span.key a:hover { color: #000; text-decoration: underline }
 div.issue span.key a:visited { color: #666; text-decoration: underline; font-weight: bold }
 div.issue span.assignee,
-div.issue span.type { background: #999; font-size: 9px; font-style: italic; color: white; padding: 2px 10px; text-align: right; float: right; clear:both; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin-bottom: 2px; opacity: 0.8;}
+div.issue span.type,
+#users li { background: #999; font-size: 9px; font-style: italic; color: white; padding: 2px 10px; text-align: right; float: right; clear:both; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin-bottom: 2px; opacity: 0.8;}
 div.issue span.summary { font-size: 10px; height: 100px;}
 table { margin:0; padding: 0; border-collapse:collapse; }
 table td { width: 260px; margin: 0; padding: 0 0 0 5px;}
@@ -22,11 +23,14 @@ div.issue span.type.type_3 { background: #ff9900; } /*improvement*/
 div.issue span.type.type_30 { background: #33cc00; } /*demanda*/
 div.issue span.type.type_39 { background: blue; } /*tarefa*/
 
-div.issue span.assignee.person_0 { background: blue; }
-div.issue span.assignee.person_1 { background: green;}
-div.issue span.assignee.person_2 { background: purple; }
-div.issue span.assignee.person_3 { background: gray; }
-div.issue span.assignee.person_4 { background: pink; }
-div.issue span.assignee.person_5 { background: red; }
-div.issue span.assignee.person_6 { background: brown; }
-div.issue span.assignee.person_7 { background: black;}
+#users li.person_0, div.issue span.assignee.person_0 { background: blue; }
+#users li.person_1, div.issue span.assignee.person_1 { background: green;}
+#users li.person_2, div.issue span.assignee.person_2 { background: purple; }
+#users li.person_3, div.issue span.assignee.person_3 { background: gray; }
+#users li.person_4, div.issue span.assignee.person_4 { background: pink; }
+#users li.person_5, div.issue span.assignee.person_5 { background: red; }
+#users li.person_6, div.issue span.assignee.person_6 { background: brown; }
+#users li.person_7, div.issue span.assignee.person_7 { background: black;}
+
+#users ul { list-style: none; margin: 0; padding: 0;}
+#users li { display: inline-block; float: none; font-size: 12px; padding: 5px;}

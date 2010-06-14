@@ -1,3 +1,10 @@
+#users
+	%ul
+		- board.people.each do |person|
+			%li{:class => "person_#{board.get_person_class(person)}"}
+				%input{:type => "checkbox", :value => "person_#{board.get_person_class(person)}", :checked => "checked", :id => "person_#{board.get_person_class(person)}"}
+				%label{:for => "person_#{board.get_person_class(person)}"}
+					= person
 %table{:cellpadding=>"0", :cellspacing=>"0"}
 	%thead>
 		%tr
@@ -14,3 +21,11 @@
 				= board.render_issues(board.verifying)
 			%td
 				= board.render_issues(board.done)
+:javascript
+	$("input[type=checkbox]").bind("click", function (o) {
+		var issues = $(".issue." + this.value)
+		if (this.checked)
+			issues.show()
+		else
+			issues.hide()
+	});
